@@ -1,15 +1,17 @@
 "use strict";
-
+// set the score and variables
 let humanScore = 0,
     computerScore = 0,
     humanChoice,
     computerChoice;
 
+//gets human choice
 function getHumanChoice() {
     humanChoice = prompt("Draw rock, paper or scissors")
     return humanChoice
 }
 
+//generate computer choice
 function getComputerChoice() {
     computerChoice = Math.floor(Math.random() * 3) + 1;
 
@@ -22,4 +24,28 @@ function getComputerChoice() {
     }
 }
 
+
+//function to start the road getting both choices
+function playRound(humanChoice, computerChoice) {
+    humanChoice.toLowerCase();
+
+    if (humanChoice === computerChoice) {
+        return "It's a tie!";
+    } else if ((humanChoice === "rock" && computerChoice === "paper") ||
+        (humanChoice === "paper" && computerChoice === "scissors") ||
+        (humanChoice === "scissors" && computerChoice === "rock")) {
+        computerScore++;
+        return "Computer wins this round!";
+    } else {
+        humanScore++;
+        return "Human wins this round!";
+    }
+}
+
+//get the values of the functions to variables
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+//starts the round
+playRound(humanSelection, computerSelection);
 
