@@ -42,10 +42,27 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-//get the values of the functions to variables
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
 
-//starts the round
-playRound(humanSelection, computerSelection);
 
+//Function to play the game
+function playGame() {
+
+    for (let i = 0; i <= 5; i++) {
+        //recalls functions and assign them to variables
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        //starts the round
+        playRound(humanSelection, computerSelection);
+
+        //Checks the winner of the game
+        if (i === 5 && computerScore > humanScore) {
+            return "Computer wins the game!";
+        } else if (i === 5 && humanScore > computerScore) {
+            return "Human wins the game!";
+        } else { }
+
+    }
+
+}
+
+playGame();
